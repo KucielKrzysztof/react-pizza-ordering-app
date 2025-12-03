@@ -1,5 +1,9 @@
 # 🍕 Pizza Ordering App (React + Redux Toolkit + React Router)
 
+<div align="center" style="filter: drop-shadow(0 0 8px rgba(0, 140, 255, 0.8));">
+<img src="./src//assets/logo.png" alt="Logo aplikacji" width="200"  />
+</div>
+
 > [!NOTE]
 > This project was created by me while following Jonas Schmedtmann’s “The Ultimate React Course”.
 > I built it independently, adapting the concepts from the course to deepen my understanding of React, Redux Toolkit, and React Router.
@@ -190,6 +194,23 @@ npm run dev
 
 # SCREENSHOTS
 
+## HOME
+
+![homepage](./screenshots/home.png)
+
+## MENU
+
+![menu](./screenshots/menu.png)
+
+## NEW ORDER
+
+![new order](./screenshots/new_order.png)
+
+## ORDER
+
+![order](./screenshots/order.png)
+
+---
 
 # TODO
 
