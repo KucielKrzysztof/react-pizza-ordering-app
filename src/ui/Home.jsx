@@ -1,11 +1,13 @@
 import { useSelector } from "react-redux";
 import CreateUser from "../Features/user/CreateUser.jsx";
 import Button from "./Button.jsx";
+import Logo from "./Logo.jsx";
 
 function Home() {
   const username = useSelector((store) => store.user.username);
   return (
     <div className="my-10 px-4 text-center">
+      <Logo size={20} />
       <h1 className="mb-8 text-center text-xl font-semibold text-zinc-300 md:text-3xl">
         The best pizza.
         <br />

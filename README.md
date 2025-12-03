@@ -9,7 +9,24 @@ The app demonstrates a clean architecture for global state management (user & ca
 
 ---
 
-## 📌 Technologies
+## Table of Contents
+
+1. [Technologies](#technologies)
+2. [Functionality](#functionality)
+   - [User](#user)
+   - [Cart](#cart)
+   - [Order](#order)
+3. [Redux](#redux)
+   - [User Slice](#user-slice)
+   - [Cart Slice](#cart-slice)
+4. [Order Handling](#order-handling)
+5. [Geolocation (createAsyncThunk)](#geolocation-createasyncthunk)
+6. [How the App Works](#how-the-app-works)
+7. [Installation](#installation)
+8. [Screenshots](#screenshots)
+9. [TODO](#todo)
+
+## Technologies
 
 - **React**
 - **Redux Toolkit (RTK)** – store, slices, selectors, async thunks
@@ -19,16 +36,16 @@ The app demonstrates a clean architecture for global state management (user & ca
 
 ---
 
-# 🚀 Functionality
+# Functionality
 
-### 👤 User
+### **User**
 
 - Simple user registration
 - Username stored in the Redux Store
 - Automatic order form prefilling
 - Address fetching through geolocation (createAsyncThunk)
 
-### 🛒 **Cart**
+### **Cart**
 
 - Add pizzas to the cart
 - Remove items
@@ -38,7 +55,7 @@ The app demonstrates a clean architecture for global state management (user & ca
 - Conditionally display UI based on cart state
 - Pass cart data to the order form
 
-### 📦 **Order**
+### **Order**
 
 - Order creation (React Router Action)
 - Client-side form validation
@@ -112,6 +129,10 @@ After submission:
 
 # Geolocation (createAsyncThunk)
 
+## `fetchAddress`
+
+The `fetchAddress` async thunk retrieves the user’s current GPS coordinates using the browser’s Geolocation API and sends them to a reverse-geocoding service. It converts the returned data into a readable address string and returns both the coordinates and the formatted address. When fulfilled, the user slice stores this information and updates the order form automatically.
+
 ```js
 export const fetchAddress = createAsyncThunk(
   "user/fetchAddress",
@@ -126,6 +147,20 @@ export const fetchAddress = createAsyncThunk(
     return { position, address };
   },
 );
+```
+
+## Reverse Geocoding
+
+```js
+export async function getAddress({ latitude, longitude }) {
+  const res = await fetch(
+    `https://api.bigdatacloud.net/data/reverse-geocode-client?latitude=${latitude}&longitude=${longitude}`,
+  );
+  if (!res.ok) throw Error("Failed getting address");
+
+  const data = await res.json();
+  return data;
+}
 ```
 
 ---
@@ -153,7 +188,10 @@ npm run dev
 
 ---
 
-# 📝 TODO 
+# SCREENSHOTS
+
+
+# TODO
 
 - Order history
 - User authentication (OAuth)
