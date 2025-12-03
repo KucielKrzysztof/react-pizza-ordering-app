@@ -1,6 +1,6 @@
 import { useFetcher } from "react-router-dom";
 import Button from "../../ui/Button";
-import { updateOrder } from "../../services/apiRestaurant";
+import { updateOrder } from "../../services/apiRestaurant.js";
 function UpdateOrder({ orderObj }) {
   const fetcher = useFetcher();
 

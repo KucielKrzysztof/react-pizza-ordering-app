@@ -11,7 +11,7 @@ import { getOrder } from "../../services/apiRestaurant.js";
 
 import OrderItem from "./OrderItem.jsx";
 import { useEffect } from "react";
-import UpdateOrder from "./updateOrder.jsx";
+import UpdateOrder from "./UpdateOrder.jsx";
 
 function Order() {
   const order = useLoaderData();
