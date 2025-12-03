@@ -13,8 +13,8 @@ function Menu() {
       </h1>
 
       <ul className="divide-y divide-amber-50 px-2">
-        {menu.map((pizzaObj) => (
-          <MenuItem pizza={pizzaObj} key={pizzaObj.id} />
+        {menu.map((pizzaObj, index) => (
+          <MenuItem pizza={pizzaObj} key={pizzaObj.id} index={index} />
         ))}
       </ul>
     </>

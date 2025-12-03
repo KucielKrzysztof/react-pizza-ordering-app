@@ -6,7 +6,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { addItem } from "../cart/cartSlice.js";
 import { getCurrentQuantityById } from "../cart/cartSlice.js";
 
-function MenuItem({ pizza }) {
+function MenuItem({ pizza, index }) {
   const { id, name, unitPrice, ingredients, soldOut, imageUrl } = pizza;
   const dispatch = useDispatch();
   const currentQuantity = useSelector(getCurrentQuantityById(id));
@@ -25,7 +25,10 @@ function MenuItem({ pizza }) {
   }
 
   return (
-    <li className="flex gap-4 py-2">
+    <li
+      className="slide-in-left flex gap-4 py-2"
+      style={{ animationDelay: `${index * 0.1}s` }}
+    >
       <img
         src={imageUrl}
         alt={name}
